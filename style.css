@@ -62,7 +62,12 @@ ul {
 	justify-content: space-around;
 }
 
+
 li {list-style: none;}
+
+.navbar > ul:nth-child(1) {
+ padding-left: 0px;
+}
 
 a, a:visited {
 	text-decoration: none;
@@ -71,12 +76,24 @@ a, a:visited {
 table {
 	margin-top: 5rem;
 	margin-bottom: 5rem;
-    table-layout: fixed;
+    /* table-layout: fixed; */
     width: 100%;
     border-collapse: collapse;
     border: 2px solid purple;
     box-shadow: 5px 5px 5px 0px rgba(40, 44, 52, 0.25);
 
+}
+
+caption {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  color: #6c757d;
+  text-align: left;
+  caption-side: bottom;
+}
+
+th {
+  text-align: inherit;
 }
 
 td {
@@ -89,14 +106,21 @@ input {
     margin: 1rem;
 }
 
-/* classes */
+/* classes / ID*/
+
+#main-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
 
 .container {
     margin: 0;
     padding: 0;
     font-size: 1.2rem;
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
     justify-content: space-around;
 }
 
@@ -122,7 +146,7 @@ input {
 }
 
 .navbar {
-    background-color: #3c3c3c;
+    background-color: rgba(52, 58, 64, 1);
     padding: 1px;
 }
 
@@ -140,7 +164,7 @@ input {
     padding-top: 0.3125rem;
     padding-bottom: 0.3125rem;
     margin-right: 1rem;
-    font-size: 1.25rem;
+    font-size: 2rem;
     line-height: inherit;
     white-space: nowrap;
 }
@@ -169,6 +193,41 @@ input {
     border-color: rgba(0, 98, 204, 7);
 }
 
+.table {
+  max-width: 1140px;
+  /* margin-bottom: 1rem; */
+  color: #212529;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody + tbody {
+  border-top: 2px solid #dee2e6;
+}
+
+.table-primary,
+.table-primary > th,
+.table-primary > td {
+  background-color: #b8daff;
+}
+
+.table-primary th,
+.table-primary td,
+.table-primary thead th,
+.table-primary tbody + tbody {
+  border-color: #7abaff;
+}
+
 .t-white {
     color: rgba(241, 241, 241, 1);
 }
@@ -179,31 +238,6 @@ input {
 
 /* ID */
 
-#header {
-    flex: 0 10vh;
-}
-
-#dashboard {
-    flex: 0 80vh;
-}
-
-#footer {
-    flex: 0 10vh;
-}
-
 #nav-wrapper {
     align-items: center;
 }
-
-#form-container {
-    display: flex;
-    padding: 5rem;
-}
-
-#submit-container {
-    display: flex;
-    flex-direction: row-reverse;
-    padding: 1rem;
-}
-
-

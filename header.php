@@ -11,8 +11,15 @@
 	    <title>Light Changes</title>
 	</head>
 
-	<header id="header">
-		<div class="container ml-mr-20 f-between" id="nav-wrapper">
-			<a href="#" class="logo">Light Changes</a>
-		</div>
-	</header>
+	<body>
+		<header id="header">
+			<div class="bg-dark container">
+					<nav class="navbar">
+						<ul>
+							<li>
+								<h1 class><a href="index.php" class="logo">Light Changes</a><h1>
+							</li>
+						</ul>
+					</nav>
+			</div>
+		</header>
