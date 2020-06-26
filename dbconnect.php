@@ -1,6 +1,6 @@
 <?php
 $host = "fd9c3c72d354";
-$db = "datas";
+$db = "lights";
 $dsn = "mysql:host=$host;dbname=$db";
 $user = 'root';
 $password = 'mariadb';
