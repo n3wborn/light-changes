@@ -9,6 +9,7 @@
 	    <link rel="shortcut icon" href="favicon.ico">
 	    <link rel="stylesheet" href="style.css">
 	    <link rel="stylesheet" href="fonts/font-awesome-4.7.0/css/font-awesome.css">
+	    <script src="scripts.js"></script>
 	    <title>Light Changes</title>
 	</head>
 
