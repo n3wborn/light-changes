@@ -11,7 +11,7 @@ $options = [
     PDO::ATTR_PERSISTENT
 ];
 
-//On se connecte à la BDD
+//throw error if impossible to connect to database
 try {
     $pdo = new PDO($dsn, $user, $password, $options);
 } catch (\Throwable $th) {
