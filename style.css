@@ -112,7 +112,9 @@ input, select {
   margin: 1rem;
 }
 
-input[type="date"], select {
+input[type="date"],
+input[type="text"],
+select {
   min-height: 2.5rem;
   color: var(--c-fifth);
 }
@@ -142,8 +144,11 @@ footer p {
   display: flex;
   justify-content: space-between;
 }
-
-.-f-center {
+.f-around {
+  display: flex;
+  justify-content: space-around;
+}
+.f-center {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -154,7 +159,25 @@ footer p {
   margin-right: 20vw;
 }
 
+.ml-mr-50 {
+  margin-left: 50%;
+  margin-right: 50%;
+}
+
+.submit-container {
+ margin-left: 25%;
+ margin-right: 25%;
+ margin-top: 0.5rem;
+ margin-bottom: 0.5rem;
+}
+
+
+
 .ml-auto {margin-left: auto;}
+
+.width50 {
+  width: 50%;
+}
 
 .navbar {
   background-color: var(--c-fifth);
@@ -222,8 +245,6 @@ footer p {
   vertical-align: top;
 }
 
-
-
 .t-white {color: var(--c-first);}
 
 .alert {color: rgba(204, 0, 102, 1);}
@@ -235,6 +256,11 @@ footer p {
   justify-content: space-around;
   align-items: center;
   background-color: var(--c-first);
+}
+
+#form-container {
+ margin-top: 5rem;
+ margin-bottom: 5rem;
 }
 
 #nav-wrapper {align-items: center;}

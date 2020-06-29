@@ -22,16 +22,15 @@
 <?php
 
 //sql request
-$sql = 	'SELECT appartments.ID AS "id",
- appartments.changement AS "Date",
- appartments.etage AS "Floor",
- appartments.position AS "Location",
- ampoules.puissance AS "Power",
- ampoules.marque AS "Brand"
- FROM ampoules
- INNER JOIN appartments
- ORDER BY `Date` ASC';
-
+/*$sql = 	'SELECT appartments.ID AS "id",
+ appartments.last_change AS "Date",
+ appartments.floor AS "Floor",
+ appartments.location AS "Location",
+ appartments.light_power AS "Power",
+ appartments.light_brand AS "Brand"
+ FROM appartments
+ ORDER BY Date ASC'*/;
+$sql = 'SELECT ID, last_change, floor, location, light_power, light_brand FROM appartments ORDER BY last_change ASC';
 //prepare request
 $req = $pdo->prepare($sql);
 
@@ -48,14 +47,14 @@ $intlDateFormater = new IntlDateFormatter('fr_FR', IntlDateFormatter::SHORT, Int
 if (count($results) !== 0) {
 	foreach($results as $row){
 		echo '<tr>';
-		echo '<td>' .$row['id']. '</td>';
-		echo '<td>' .$intlDateFormater->format(strtotime($row['Date'])). '</td>';
-		echo '<td>' .$row['Floor']. '</td>';
-		echo '<td>' .$row['Location']. '</td>';
-		echo '<td>' .$row['Power']. '</td>';
-		echo '<td>' .$row['Brand']. '</td>';
-		echo '<td><a href="edit.php?id=' .$row['id']. '"><span class="fa fa-edit fa-lg"></span></a></td>';
-		echo '<td><a href="delete.php?id=' .$row['id']. '"><span class="fa fa-trash fa-lg"></span></a></td>';
+		echo '<td>' .$row['ID']. '</td>';
+		echo '<td>' .$intlDateFormater->format(strtotime($row['last_change'])). '</td>';
+		echo '<td>' .$row['floor']. '</td>';
+		echo '<td>' .$row['location']. '</td>';
+		echo '<td>' .$row['light_power']. '</td>';
+		echo '<td>' .$row['light_brand']. '</td>';
+		echo '<td><a href="edit.php?id=' .$row['ID']. '"><span class="fa fa-edit fa-lg"></span></a></td>';
+		echo '<td><a href="delete.php?id=' .$row['ID']. '"><span class="fa fa-trash fa-lg"></span></a></td>';
 		echo '</tr>';
 	}
 } else {
