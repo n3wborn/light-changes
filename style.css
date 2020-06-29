@@ -171,7 +171,10 @@ footer p {
  margin-bottom: 0.5rem;
 }
 
-
+.btn-link {
+  display: inline-block;
+  width: 100%;
+}
 
 .ml-auto {margin-left: auto;}
 
@@ -266,5 +269,3 @@ footer p {
 #nav-wrapper {align-items: center;}
 
 #add-btn {width: 180%;}
-
-#add-link {}

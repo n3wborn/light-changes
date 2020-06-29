@@ -12,7 +12,7 @@
 				<th>Location</th>
 				<th>Power</th>
 				<th>Brand</th>
-				<th><button type="submit" class="btn btn-primary" id="add-btn"><a href="add.php" id="add-link">Add</a></button></th>
+				<th><button type="submit" class="btn btn-primary" id="add-btn"><a href="add.php" class="btn-link" >Add</a></button></th>
 				<th></th>
 			</tr>
 		</thead>
