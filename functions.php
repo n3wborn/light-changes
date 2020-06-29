@@ -23,43 +23,49 @@ function dbconnect() {
 }
 
 
-function populate() {
-//call dbo
-	dbconnect()
-//sql request
-	$sql = 	'SELECT appartments.ID AS "id",
-	appartments.changement AS "Date",
-	appartments.etage AS "Floor",
-	appartments.position AS "Location",
-	ampoules.puissance AS "Power",
-	ampoules.marque AS "Brand"
-	FROM ampoules
-	INNER JOIN appartments
-	ORDER BY `Date` ASC';
+// set_string($arg)
+// return true if arg is a not empty string
+function set_string($arg) {
+	if (!empty($arg) && is_string($arg)) {
+		return true;
+	} else {
+		return false;
+	}
+}
 
-//prepare request
-	$req = $pdo->prepare($sql);
+// set_intstring($arg)
+// return true if arg is set and is a numeric string
+function set_intstring($arg) {
+	if (!empty($arg) && is_numeric($arg)) {
+		return true;
+	} else {
+		return false;
+	}
+}
 
-//execute
-	$req->execute();
+// set_isint($arg)
+// return true only if $arg is set, and an int
+function set_isint($arg) {
+	if (isset($arg) && is_int($arg)) {
+		return true;
+	} else {
+		return false;
+	}
+}
 
-//fetch results
-	$results = $req->fetchAll(PDO::FETCH_ASSOC);
+//return true if $date is a valid date
+function validateDate($date, $format = 'Y-m-d')
+{
+    $d = DateTime::createFromFormat($format, $date);
+    return $d && $d->format($format) === $date;
+}
 
-//Change date format
-	$intlDateFormater = new IntlDateFormatter('fr_FR', IntlDateFormatter::SHORT, IntlDateFormatter::NONE);
-
-//loop over results
-	foreach($results as $row){
-		echo '<tr>';
-		echo '<td>' .$row['id']. '</td>';
-		echo '<td>' .$intlDateFormater->format(strtotime($row['Date'])). '</td>';
-		echo '<td>' .$row['Floor']. '</td>';
-		echo '<td>' .$row['Location']. '</td>';
-		echo '<td>' .$row['Power']. '</td>';
-		echo '<td>' .$row['Brand']. '</td>';
-		echo '<td><a href="edit.php?id=' .$row['id']. '"><span class="fa fa-edit fa-lg"></span></a></td>';
-		echo '<td><a href="delete.php?id=' .$row['id']. '"><span class="fa fa-trash fa-lg"></span></a></td>';
-		echo '</tr>';
+// set_date($arg)
+// return true if arg is a valid date format (ex: 2020-06-30)
+function set_date($arg) {
+	if (!empty($arg) && validateDate($arg)) {
+		return true;
+	} else {
+		return false;
 	}
 }
