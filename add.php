@@ -4,11 +4,6 @@
 
 <?php
 
-//print_r($_POST);
-//foreach ($_POST as $key => $value) {
-//	var_dump($value);
-//}
-
 //vars init
 $date = '';
 $location = '';
@@ -16,16 +11,16 @@ $floor = '';
 $power = '';
 $brand = '';
 
- if( count($_POST) > 0) {
-//if each args is ok
-if (
-	set_date($_POST['date']) &&
-	set_string($_POST['location']) &&
-	set_intstring($_POST['floor']) &&
-	set_string($_POST['power']) &&
-	set_string($_POST['brand'])
-)
-	{
+//if submissions
+if( count($_POST) > 0) {
+	//if each args is ok
+	if (
+		set_date($_POST['date']) &&
+		set_string($_POST['location']) &&
+		set_intstring($_POST['floor']) &&
+		set_string($_POST['power']) &&
+		set_string($_POST['brand']))
+		{
 
 		//bind args and values
 		$date = $_POST['date'];
@@ -36,23 +31,22 @@ if (
 
 		//feed my request
 		$sql = "INSERT INTO appartments(last_change, location, floor, light_power, light_brand) VALUES(:last_change, :location, :floor, :power, :brand)";
+
 		//prepare my request
 		$req = $pdo->prepare($sql);
+
 		//and bind parameters so we take care of sqli's
 		$req->bindValue(':last_change', strftime("%Y-%m-%d" ,strtotime($date)), PDO::PARAM_STR);
 		$req->bindParam(':location', $location, PDO::PARAM_STR);
 		$req->bindParam(':floor', $floor, PDO::PARAM_STR);
 		$req->bindParam(':power', $power, PDO::PARAM_STR);
 		$req->bindParam(':brand', $brand, PDO::PARAM_STR);
-		//DEBUG
-		var_dump($req);
+
 		// exec !
 		$req->execute();
 	}
 }
-
 ?>
-
 
 <!-- Page Structure -->
 <main id="main-container" class="container fcol">
