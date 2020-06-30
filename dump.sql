@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 4d4d71817f62
--- Generation Time: Jun 29, 2020 at 08:53 AM
+-- Generation Time: Jun 30, 2020 at 05:49 PM
 -- Server version: 10.4.13-MariaDB-1:10.4.13+maria~bionic
 -- PHP Version: 7.4.6
 
@@ -41,18 +41,13 @@ CREATE TABLE `appartments` (
 --
 
 INSERT INTO `appartments` (`ID`, `floor`, `location`, `last_change`, `light_power`, `light_brand`) VALUES
-(1, '0', 'gauche', '2020-03-03', '25W', 'Osram'),
-(2, '0', 'droite', '2019-12-02', '15W', 'Philipps'),
 (3, '1', 'gauche', '2020-03-21', '10W', 'GE-Lighting'),
 (4, '1', 'droite', '2020-06-03', '15W', 'Philipps'),
-(5, '2', 'fond', '2019-07-07', '10W', 'Osram'),
 (6, '2', 'gauche', '2020-06-05', '15W', 'GE-Lighting'),
 (7, '3', 'gauche', '2020-06-21', '25W', 'Philipps'),
-(8, '3', 'droite', '2020-03-09', '10W', 'Osram'),
 (9, '3', 'fond', '2020-06-01', '15W', 'GE-Lighting'),
-(10, '4', 'droite', '2020-02-06', '25W', 'Philipps'),
 (11, '4', 'gauche', '2020-04-06', '15W', 'GE-Lighting'),
-(12, '4', 'fond', '2019-10-10', '25W', 'Philipps');
+(13, '6', 'gauche', '2020-07-02', '40W', 'GE-Lightings');
 
 --
 -- Indexes for dumped tables
@@ -72,7 +67,7 @@ ALTER TABLE `appartments`
 -- AUTO_INCREMENT for table `appartments`
 --
 ALTER TABLE `appartments`
-  MODIFY `ID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
