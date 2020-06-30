@@ -1,5 +1,6 @@
 <?php require_once "header.php"; ?>
 <?php require_once "dbconnect.php"; ?>
+<?php session_start(); ?>
 
 <main id="main-container" class="fcol">
 
@@ -54,7 +55,7 @@ if (count($results) !== 0) {
 		echo '<td>' .$row['light_power']. '</td>';
 		echo '<td>' .$row['light_brand']. '</td>';
 		echo '<td><a href="edit.php?id=' .$row['ID']. '"><span class="fa fa-edit fa-lg"></span></a></td>';
-		echo '<td><a href="delete.php?id=' .$row['ID']. '"><span class="fa fa-trash fa-lg"></span></a></td>';
+		echo '<td><a href="delete.php?id=' .$row['ID']. '" onclick="surDelete()"><span class="fa fa-trash fa-lg"></span></a></td>';
 		echo '</tr>';
 	}
 } else {
