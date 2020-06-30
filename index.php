@@ -4,6 +4,20 @@
 
 <main id="main-container" class="fcol">
 
+<!-- Trigger/Open The Modal -->
+<button id="myBtn">Open Modal</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Some text in the Modal..</p>
+  </div>
+
+</div>
+
 	<table class="table table-primary">
 		<thead>
 			<tr>
@@ -13,7 +27,7 @@
 				<th>Location</th>
 				<th>Power</th>
 				<th>Brand</th>
-				<th><button type="submit" class="btn btn-primary" id="add-btn"><a href="add.php" class="btn-link" >Add</a></button></th>
+				<th><button type="submit" class="btn btn-primary" id="add-btn"><a href="add.php" class="btn-link">Add</a></button></th>
 				<th></th>
 			</tr>
 		</thead>
@@ -30,7 +44,7 @@
  appartments.light_power AS "Power",
  appartments.light_brand AS "Brand"
  FROM appartments
- ORDER BY Date ASC'*/;
+ ORDER BY Date ASC';*/
 $sql = 'SELECT ID, last_change, floor, location, light_power, light_brand FROM appartments ORDER BY last_change ASC';
 //prepare request
 $req = $pdo->prepare($sql);
@@ -55,7 +69,7 @@ if (count($results) !== 0) {
 		echo '<td>' .$row['light_power']. '</td>';
 		echo '<td>' .$row['light_brand']. '</td>';
 		echo '<td><a href="edit.php?id=' .$row['ID']. '"><span class="fa fa-edit fa-lg"></span></a></td>';
-		echo '<td><a href="delete.php?id=' .$row['ID']. '" onclick="surDelete()"><span class="fa fa-trash fa-lg"></span></a></td>';
+		echo '<td><a class="dellinks" href="delete.php?id=' .$row['ID']. '"><span class="fa fa-trash fa-lg"></span></a></td>';
 		echo '</tr>';
 	}
 } else {
@@ -67,5 +81,6 @@ if (count($results) !== 0) {
 			</table>
 
 		</main>
+		<script src="scripts.js"></script>
 	</body>
 </html>
