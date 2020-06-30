@@ -1,29 +1,55 @@
 <?php require_once "dbconnect.php" ?>
 <?php require_once "header.php" ?>
+<?php require_once "functions.php" ?>
 
 <?php
 
-/*
+//print_r($_POST);
+//foreach ($_POST as $key => $value) {
+//	var_dump($value);
+//}
 
-name="date" -> appartments.last_change
-name="floor" -> 	appartments.floor
-name="puissance"	-> light_power
-name="marque"  -> light_brand
-
-*/
-
+//vars init
 $date = '';
 $location = '';
 $floor = '';
 $power = '';
 $brand = '';
 
-//print_r($_POST);
-foreach ($_POST as $key => $value) {
-	var_dump($value);
+ if( count($_POST) > 0) {
+//if each args is ok
+if (
+	set_date($_POST['date']) &&
+	set_string($_POST['location']) &&
+	set_intstring($_POST['floor']) &&
+	set_string($_POST['power']) &&
+	set_string($_POST['brand'])
+)
+	{
+
+		//bind args and values
+		$date = $_POST['date'];
+		$location = $_POST['location'];
+		$floor = $_POST['floor'];
+		$power = $_POST['power'];
+		$brand = $_POST['brand'];
+
+		//feed my request
+		$sql = "INSERT INTO appartments(last_change, location, floor, light_power, light_brand) VALUES(:last_change, :location, :floor, :power, :brand)";
+		//prepare my request
+		$req = $pdo->prepare($sql);
+		//and bind parameters so we take care of sqli's
+		$req->bindValue(':last_change', strftime("%Y-%m-%d" ,strtotime($date)), PDO::PARAM_STR);
+		$req->bindParam(':location', $location, PDO::PARAM_STR);
+		$req->bindParam(':floor', $floor, PDO::PARAM_STR);
+		$req->bindParam(':power', $power, PDO::PARAM_STR);
+		$req->bindParam(':brand', $brand, PDO::PARAM_STR);
+		//DEBUG
+		var_dump($req);
+		// exec !
+		$req->execute();
+	}
 }
-
-
 
 ?>
 
@@ -36,10 +62,10 @@ foreach ($_POST as $key => $value) {
 		<!-- Main form -->
 		<form action="" method="post" class="fcol">
 			<label for="date">Date</label>
-			<input type="date" name="date" class="form-input" required>
+			<input type="date" name="date" class="form-input" value="<?=$date ;?>" required>
 
 			<label for="location">Location</label>
-			<select id="location" class="form-input" name="location" required>
+			<select id="location" class="form-input" name="location" value="<?=$location ;?>" required>
 				<option value="" selected>Choose Location</option>
 				<option value="gauche">left</option>
 				<option value="droite">right</option>
@@ -47,13 +73,13 @@ foreach ($_POST as $key => $value) {
 			</select>
 
 			<label for="floor">Floor</label>
-			<input type="text" name="floor" class="form-input" required>
+			<input type="text" name="floor" class="form-input" value="<?=$floor ;?>" required>
 
 			<label for="power">Power</label>
-			<input type="text" name="power" class="form-input" required>
+			<input type="text" name="power" class="form-input" value="<?=$power ;?>" required>
 
 			<label for="brand">Brand</label>
-			<input type="text" name="brand" class="form-input" required>
+			<input type="text" name="brand" class="form-input" value="<?=$brand ;?>" required>
 
 			<div class="container submit-container">
 				<button type="submit" class="btn btn-primary">Add</button>
