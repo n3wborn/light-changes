@@ -44,6 +44,7 @@ if( count($_POST) > 0) {
 
 		// exec !
 		$req->execute();
+		header('Location: index.php');
 	}
 }
 ?>
