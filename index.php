@@ -36,15 +36,6 @@
 
 <?php
 
-//sql request
-/*$sql = 	'SELECT appartments.ID AS "id",
- appartments.last_change AS "Date",
- appartments.floor AS "Floor",
- appartments.location AS "Location",
- appartments.light_power AS "Power",
- appartments.light_brand AS "Brand"
- FROM appartments
- ORDER BY Date ASC';*/
 $sql = 'SELECT ID, last_change, floor, location, light_power, light_brand FROM appartments ORDER BY last_change ASC';
 //prepare request
 $req = $pdo->prepare($sql);
