@@ -4,6 +4,16 @@
 
 <main id="main-container" class="fcol">
 
+<div id="modal" class="hidden">
+	<div id="modal_dialog" >
+		<p id="modal_text">Do you really want to delete ?</p>
+		<div class="modal_area_btn">
+			<button id="modal-btn-yes">Yes</button>
+			<button id="modal-btn-no">No</button>
+		</div>
+	</div>
+</div>
+
 	<table class="table table-primary">
 		<thead>
 			<tr>

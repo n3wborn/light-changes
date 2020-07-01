@@ -2,33 +2,56 @@
  * Keep an eye on delete links
  *
  */
+//on selectionne les elements dont on a besoin
+const deleteLinks = document.getElementsByClassName('dellinks');
+const noBtn = document.getElementById('modal-btn-no');
+const yesBtn = document.getElementById('modal-btn-yes');
 
-/* First, we must keep an eye on trashs */
-const trashs = document.querySelectorAll('.dellinks');
+//btn-no ok ?
+console.log(noBtn);
 
-/* To warn furious clickers */
-for (trash of trashs) {
-	trash.addEventListener('click', function(e) {
+//ok ?
+console.log(deleteLinks)
+
+//pour chaque element du tout
+for (deleteLink of deleteLinks) {
+	deleteLink.addEventListener('click', function(e){
 		e.preventDefault();
-		Swal.fire({
-		  title: 'Really want to delete?',
-		  text: "You won't be able to revert this!",
-		  icon: 'warning',
-		  showCancelButton: true,
-		  confirmButtonColor: '#3085d6',
-		  cancelButtonColor: '#d33',
-		  confirmButtonText: 'Yes, delete it!'
-		}).then((result) => {
-			// if ok
-		  if (result.value) {
-		    Swal.fire(
-		    	// I shall tell "ok, delete this" to PHP
-		    	// right here
-		      'Deleted!',
-		      'Your file has been deleted.',
-		      'success'
-		    )
-		  }
-		})
+		//is it OK ?
+		//console.log('ISO K');
+		//Let's call our modal !
+		const modal = document.getElementById('modal');
+		//OK ?
+		//console.log(modal);
+		modal.classList.toggle('hidden');
+
+		//ajout de la classe qui va bien
+		console.log('TEST this');
+		console.log(this.classList);
+		this.classList.toggle('readyToDelete');
+
 	})
 }
+
+
+//ecoute le click sur No et agit comme on veut
+noBtn.addEventListener('click', function() {
+		const modal = document.getElementById('modal');
+		modal.classList.toggle('hidden');
+
+		// selection du lien ayant readyToDelete
+		const elementsToDelete = document.getElementsByClassName('readyToDelete')
+		for (elementToDelete of elementsToDelete) {
+			elementToDelete.classList.toggle('readyToDelete')
+		}
+})
+
+//ecoute le click sur Yes et agit comme on veut
+yesBtn.addEventListener('click', function() {
+
+	// selection du lien ayant readyToDelete
+	const elementsToDelete = document.getElementsByClassName('readyToDelete')
+	for (elementToDelete of elementsToDelete) {
+		location.href = elementToDelete.getAttribute('href');
+	}
+})
