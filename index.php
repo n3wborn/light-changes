@@ -81,5 +81,7 @@ if (count($results) !== 0) {
 
 		</main>
 		<script src="scripts.js"></script>
+		<!-- sweetalert CDN -->
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	</body>
 </html>
