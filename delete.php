@@ -1,11 +1,9 @@
-<?php require_once "dbconnect.php" ?>
 <?php require_once "header.php" ?>
 <?php require_once "functions.php" ?>
 
 <?php
 
-//we handle GET request
-$id = $_GET['id'];
+$pdo = dbconnect();
 
 //if "seems to be an int"
 if (set_intstring($id)){
