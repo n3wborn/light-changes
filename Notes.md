@@ -19,7 +19,7 @@ On peut aussi préciser cette option dans un script php pour "forcer" la valeur.
     ini_set ( string $varname , string $newvalue ) : string
     ini_set('display_errors', '1');
 
-    docker run --name webdevops --rm -ti -p 8080:80  --link mariadb -e PHP_DISPLAY_ERRORS=On -v "C:\Users\acs.PORT-0308\dev\ACS-Projets\gestion-randonnees":/app   webdevops/php-apache
+    docker run --name webdevops --rm -ti -p 8080:80  --link mariadb -e PHP_DISPLAY_ERRORS=On -v "C:\Users\acs.PORT-0308\dev\ACS-Projets\light-changes":/app   webdevops/php-apache
 
 ### Lancer phpmyadmin
 
