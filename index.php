@@ -1,6 +1,6 @@
 <?php require_once "header.php"; ?>
-<?php require_once "dbconnect.php"; ?>
-<?php session_start(); ?>
+<?php require_once "functions.php"; ?>
+
 
 <main id="main-container" class="fcol">
 
@@ -36,7 +36,15 @@
 
 <?php
 
+//receive PDO connection from functions.php
+$pdo = dbconnect();
+
+//keep tracking
+session_start();
+
+//we make a good sql request
 $sql = 'SELECT ID, last_change, floor, location, light_power, light_brand FROM appartments ORDER BY last_change ASC';
+
 //prepare request
 $req = $pdo->prepare($sql);
 

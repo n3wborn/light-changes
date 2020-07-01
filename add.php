@@ -1,8 +1,10 @@
-<?php require_once "dbconnect.php" ?>
 <?php require_once "header.php" ?>
 <?php require_once "functions.php" ?>
 
 <?php
+
+//receive PDO connection from functions.php
+$pdo = dbconnect();
 
 //vars init
 $date = '';
