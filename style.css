@@ -268,4 +268,6 @@ footer p {
 
 #nav-wrapper {align-items: center;}
 
-#add-btn {width: 180%;}
+#add-btn {
+  width: 140%;
+}
