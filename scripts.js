@@ -1,44 +1,34 @@
 /*
  * Keep an eye on delete links
+ *
  */
 
-//keep an eye on trashs
+/* First, we must keep an eye on trashs */
 const trashs = document.querySelectorAll('.dellinks');
 
+/* To warn furious clickers */
 for (trash of trashs) {
 	trash.addEventListener('click', function(e) {
-		//e.preventDefault();
-		console.log("Pelep pep pep")
+		e.preventDefault();
+		Swal.fire({
+		  title: 'Really want to delete?',
+		  text: "You won't be able to revert this!",
+		  icon: 'warning',
+		  showCancelButton: true,
+		  confirmButtonColor: '#3085d6',
+		  cancelButtonColor: '#d33',
+		  confirmButtonText: 'Yes, delete it!'
+		}).then((result) => {
+			// if ok
+		  if (result.value) {
+		    Swal.fire(
+		    	// I shall tell "ok, delete this" to PHP
+		    	// right here
+		      'Deleted!',
+		      'Your file has been deleted.',
+		      'success'
+		    )
+		  }
+		})
 	})
-}
-
-
-/*
- * To warn furious clickers
- */
-
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
 }
