@@ -3,18 +3,29 @@
 
 <?php
 
+//we keep our pdo object
 $pdo = dbconnect();
+//and take care of our inputs
+$id = htmlentities($_GET['id']);
+$id = intval($id);
 
-//if "seems to be an int"
-if (set_intstring($id)){
-	//prepare to delete
-	$sql = 'DELETE FROM appartments WHERE ID = :id';
-	$req = $pdo->prepare($sql);
-	//specify an int to avoi script k1ddi3s
-	$req->bindParam(':id',  $id, PDO::PARAM_INT);
-	//exec and go back to index
-	$req->execute();
-	header('Location: index.php');
+
+//Now we start doing the job
+try {
+	//is $id really an int ?!
+	if (set_isint($id)){
+		//prepare ou sql request
+		$sql = 'DELETE FROM appartments WHERE ID = :id';
+		$req = $pdo->prepare($sql);
+		//avoid script k1ddi3s if possible
+		$req->bindParam(':id',  $id, PDO::PARAM_INT);
+		//exec and go back to index
+		$req->execute();
+		header('Location: index.php');
+	}
+	//else, spit an error
+} catch (\Throwable $th) {
+		throw $th;
 }
 
 ?>
