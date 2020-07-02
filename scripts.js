@@ -2,6 +2,8 @@
  * Keep an eye on delete links
  *
  */
+
+
 //on selectionne les elements dont on a besoin
 const deleteLinks = document.getElementsByClassName('dellinks');
 const noBtn = document.getElementById('modal-btn-no');
@@ -17,15 +19,8 @@ console.log(deleteLinks)
 for (deleteLink of deleteLinks) {
 	deleteLink.addEventListener('click', function(e){
 		e.preventDefault();
-		//is it OK ?
-		//console.log('ISO K');
-		//Let's call our modal !
 		const modal = document.getElementById('modal');
-		//OK ?
-		//console.log(modal);
 		modal.classList.toggle('hidden');
-
-		//ajout de la classe qui va bien
 		console.log('TEST this');
 		console.log(this.classList);
 		this.classList.toggle('readyToDelete');
@@ -55,3 +50,4 @@ yesBtn.addEventListener('click', function() {
 		location.href = elementToDelete.getAttribute('href');
 	}
 })
+
