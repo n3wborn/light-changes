@@ -70,3 +70,13 @@ function set_date($arg) {
 	}
 }
 
+// just my own password_hash function
+function hash_pwd(string $pwd, int $algo = PASSWORD_DEFAULT) : string {
+	$hash = password_hash($pwd, $algo);
+	return $hash;
+}
+
+function check_pwd(string $password , string $hash) : bool {
+	$res = password_verify($password, $hash);
+	return $res;
+}
