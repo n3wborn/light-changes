@@ -63,7 +63,8 @@ if (count($results) !== 0) {
 		echo '<td>' .$row['location']. '</td>';
 		echo '<td>' .$row['light_power']. '</td>';
 		echo '<td>' .$row['light_brand']. '</td>';
-		echo '<td><a  class="editLinks" id=' .$row['ID']. ' href="edit.php"><span class="fa fa-edit fa-lg"></span></a></td>';
+		//echo '<td><a  class="editLinks" id=' .$row['ID']. ' href="edit.php"><span class="fa fa-edit fa-lg"></span></a></td>';
+		echo '<td><a class="editLinks" id="' .$row['ID']. '"  href="edit.php?id=' .$row['ID']. '"><span class="fa fa-edit fa-lg"></span></a></td>';
 		echo '<td><a class="dellinks" href="delete.php?id=' .$row['ID']. '"><span class="fa fa-trash fa-lg"></span></a></td>';
 		echo '</tr>';
 	}
@@ -74,10 +75,14 @@ if (count($results) !== 0) {
 
 				</tbody>
 			</table>
-
 		</main>
+
 		<script src="scripts.js"></script>
-		<!-- sweetalert CDN -->
-		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
 	</body>
 </html>
+
+
+
+
+
