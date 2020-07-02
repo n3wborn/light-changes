@@ -178,9 +178,7 @@ footer p {
 
 .ml-auto {margin-left: auto;}
 
-.width50 {
-  width: 50%;
-}
+.width50 {width: 50%;}
 
 .navbar {
   background-color: var(--c-fifth);
@@ -252,6 +250,8 @@ footer p {
 
 .alert {color: rgba(204, 0, 102, 1);}
 
+
+
 /* ID */
 
 #main-container {
@@ -269,7 +269,6 @@ footer p {
 #nav-wrapper {align-items: center;}
 
 #add-btn {width: 140%;}
-
 
 #modal {
   display: flex;

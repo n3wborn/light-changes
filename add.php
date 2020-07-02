@@ -83,4 +83,6 @@ if( count($_POST) > 0) {
 			</div>
 		</form>
 	</div>
+	<script src="scripts.js"></script>
 <!-- Page Structure -->
+
