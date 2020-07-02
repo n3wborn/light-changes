@@ -63,7 +63,7 @@ if (count($results) !== 0) {
 		echo '<td>' .$row['location']. '</td>';
 		echo '<td>' .$row['light_power']. '</td>';
 		echo '<td>' .$row['light_brand']. '</td>';
-		echo '<td><a href="edit.php?id=' .$row['ID']. '"><span class="fa fa-edit fa-lg"></span></a></td>';
+		echo '<td><a  class="editLinks" id=' .$row['ID']. ' href="edit.php"><span class="fa fa-edit fa-lg"></span></a></td>';
 		echo '<td><a class="dellinks" href="delete.php?id=' .$row['ID']. '"><span class="fa fa-trash fa-lg"></span></a></td>';
 		echo '</tr>';
 	}
