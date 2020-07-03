@@ -1,88 +1,72 @@
 <?php require_once "header.php"; ?>
 <?php require_once "functions.php"; ?>
 
-
-<main id="main-container" class="fcol">
-
-<div id="modal" class="hidden">
-	<div id="modal_dialog" >
-		<p id="modal_text">Do you really want to delete ?</p>
-		<div class="modal_area_btn">
-			<button id="modal-btn-yes">Yes</button>
-			<button id="modal-btn-no">No</button>
-		</div>
-	</div>
-</div>
-
-	<table class="table table-primary">
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>Last Change</th>
-				<th>Floor</th>
-				<th>Location</th>
-				<th>Power</th>
-				<th>Brand</th>
-				<th><button type="submit" class="btn btn-primary" id="add-btn"><a href="add.php" class="btn-link">Add</a></button></th>
-				<th></th>
-			</tr>
-		</thead>
-
-		<tbody>
-
 <?php
 
-//receive PDO connection from functions.php
+//let's speak with database
 $pdo = dbconnect();
 
-//keep tracking
-session_start();
+//if datas are submitted
+if(count($_POST) > 0) {
+	//we take user inputs
+	$user = htmlentities($_POST['user']);
+	$password = htmlentities($_POST['password']);
 
-//we make a good sql request
-$sql = 'SELECT ID, last_change, floor, location, light_power, light_brand FROM appartments ORDER BY last_change ASC';
+	//feed my request
+	$sql = 'SELECT users.passwd FROM users WHERE users.login = :user';
+	//prepare my request
+	$req = $pdo->prepare($sql);
+	//and bind parameters so we take care of sqli's
+	$req->bindParam(':user', $user, PDO::PARAM_STR);
+	// exec !
+	$req->execute();
 
-//prepare request
-$req = $pdo->prepare($sql);
+	//fetch results
+	$hash = $req -> fetch();
 
-//execute
-$req->execute();
-
-//fetch results
-$results = $req->fetchAll(PDO::FETCH_ASSOC);
-
-//Change date format
-$intlDateFormater = new IntlDateFormatter('fr_FR', IntlDateFormatter::SHORT, IntlDateFormatter::NONE);
-
-//loop over results
-if (count($results) !== 0) {
-	foreach($results as $row){
-		echo '<tr>';
-		echo '<td>' .$row['ID']. '</td>';
-		echo '<td>' .$intlDateFormater->format(strtotime($row['last_change'])). '</td>';
-		echo '<td>' .$row['floor']. '</td>';
-		echo '<td>' .$row['location']. '</td>';
-		echo '<td>' .$row['light_power']. '</td>';
-		echo '<td>' .$row['light_brand']. '</td>';
-		//echo '<td><a  class="editLinks" id=' .$row['ID']. ' href="edit.php"><span class="fa fa-edit fa-lg"></span></a></td>';
-		echo '<td><a class="editLinks" id="' .$row['ID']. '"  href="edit.php?id=' .$row['ID']. '"><span class="fa fa-edit fa-lg"></span></a></td>';
-		echo '<td><a class="dellinks" href="delete.php?id=' .$row['ID']. '"><span class="fa fa-trash fa-lg"></span></a></td>';
-		echo '</tr>';
+	//goodboy badboy challenge
+	if (!check_pwd($password, $hash["passwd"])) {
+		//if badboy
+		echo "GET OUT !";
+	} else {
+		echo "MOT DE PASSE OK";
+		//keep tracking with $_SESSION
+		//header('Location: dashboard.php');
 	}
-} else {
-	echo 'No result';
 }
+
+// If already connected
+//redirect to index.php
+
 ?>
 
-				</tbody>
-			</table>
-		</main>
 
-		<script src="scripts.js"></script>
+<!-- Page Structure -->
 
-	</body>
+	<main id="main-container" class="fcol">
+
+		<div id="login-container">
+			<h2>Login Panel</h2>
+			<p>Please login</p>
+
+			<!-- login form -->
+			<form action="" method="post" class="fcol">
+
+				<label for="user">Login : </label>
+				<input type="text" name="user" class="form-input" value="" required>
+
+				<label for="password">Password : </label>
+				<input type="password" name="password" class="form-input" value="" required>
+
+				<div class="container submit-container">
+					<button type="submit" class="btn btn-primary">Login</button>
+				</div>
+
+			</form>
+
+		</div>
+	</main>
+	<script src="scripts.js"></script>
+</body>
 </html>
-
-
-
-
-
+<!-- Page Structure -->
