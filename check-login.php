@@ -53,7 +53,7 @@ if(count($_POST) > 0) {
 			<form action="" method="post" class="fcol">
 
 				<label for="user">Login : </label>
-				<input type="user" name="user" class="form-input" value="" required>
+				<input type="text" name="user" class="form-input" value="" required>
 
 				<label for="password">Password : </label>
 				<input type="password" name="password" class="form-input" value="" required>

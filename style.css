@@ -114,9 +114,21 @@ input, select {
 
 input[type="date"],
 input[type="text"],
+input[type="password"],
 select {
   min-height: 2.5rem;
   color: var(--c-fifth);
+}
+
+/* override browsers default colors */
+input:invalid {box-shadow: 0 0 1.5px 1px rgba(255, 0, 0, 0.5);}
+
+/* and make inputs a bit better */
+input[type="text"]:focus,
+input[type="password"]:focus {
+  min-height: 2.5rem;
+  color: var(--c-fifth);
+  background-color: var(--c-first);
 }
 
 footer p {
