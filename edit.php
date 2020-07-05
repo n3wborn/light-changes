@@ -90,7 +90,7 @@ if( count($_POST) > 0) {
 			<input type="text" name="brand" class="form-input" value="<?=$brand ;?>" required>
 
 			<div class="container submit-container">
-				<button type="submit" class="btn btn-primary">Edit</button>
+				<button id="edit-btn" type="submit" class="btn btn-primary">Edit</button>
 			</div>
 		</form>
 	</div>

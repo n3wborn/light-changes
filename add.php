@@ -85,7 +85,7 @@ if( count($_POST) > 0) {
 			<input type="text" name="brand" class="form-input" value="<?=$brand ;?>" required>
 
 			<div class="container submit-container">
-				<button type="submit" class="btn btn-primary">Add</button>
+				<button id="add-submit-btn" type="submit" class="btn btn-primary">Add</button>
 			</div>
 		</form>
 	</div>
