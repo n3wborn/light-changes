@@ -14,7 +14,7 @@
 
 	<body>
 		<header id="header" class="f-center">
-			<div id="nav-wrapper" class="f-between">
+			<div id="nav-wrapper" class="f-center">
 
 					<nav class="navbar">
 						<ul>

@@ -283,7 +283,7 @@ footer p {
 }
 
 #nav-wrapper {
-  max-width: 1140px;
+  min-width: 60vw;
 }
 
 #add-btn {
