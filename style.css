@@ -83,8 +83,8 @@ table {
 	margin-bottom: 5rem;
   width: 100%;
   border-collapse: collapse;
-  border: 2px solid purple;
-  box-shadow: 5px 5px 5px 0px rgba(40, 44, 52, 0.25);
+  border: 2px solid rgba(89, 96, 126, 0.8);
+  box-shadow: 3px 3px 3px 0px rgba(40, 44, 52, 0.25);
 }
 
 caption {
