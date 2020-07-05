@@ -121,7 +121,7 @@ select {
 }
 
 /* override browsers default colors */
-input:invalid {box-shadow: 0 0 1.5px 1px rgba(255, 0, 0, 0.5);}
+input:invalid {box-shadow: 0 0 1.5px 1px rgba(33, 37, 41, 0.5);}
 
 /* and make inputs a bit better */
 input[type="text"]:focus,
