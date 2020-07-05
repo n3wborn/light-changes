@@ -1,6 +1,14 @@
 <?php require_once "header.php"; ?>
 <?php require_once "functions.php"; ?>
+<?php
 
+//check if admin
+//redirect to index.php if not
+if (!connected()) {
+	header('Location: index.php');
+}
+
+?>
 
 <main id="main-container" class="fcol">
 
@@ -34,9 +42,6 @@
 
 //receive PDO connection from functions.php
 $pdo = dbconnect();
-
-//keep tracking
-session_start();
 
 //we make a good sql request
 $sql = 'SELECT ID, last_change, floor, location, light_power, light_brand FROM appartments ORDER BY last_change ASC';
@@ -78,7 +83,6 @@ if (count($results) !== 0) {
 		</main>
 
 		<script src="scripts.js"></script>
-
 	</body>
 </html>
 

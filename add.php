@@ -3,6 +3,12 @@
 
 <?php
 
+//check if admin
+//redirect to index.php if not
+if (!connected()) {
+	header('Location: index.php');
+}
+
 //receive PDO connection from functions.php
 $pdo = dbconnect();
 

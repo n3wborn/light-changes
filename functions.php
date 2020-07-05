@@ -1,7 +1,7 @@
 <?php
 
 function dbconnect() {
-	$host = "172.20.0.2";
+	$host = "a5bec15dbc08";
 	$db = "datas";
 	$dsn = "mysql:host=$host;dbname=$db";
 	$user = 'root';
@@ -80,3 +80,13 @@ function check_pwd(string $password , string $hash) : bool {
 	$res = password_verify($password, $hash);
 	return $res;
 }
+
+
+// return true if already connected
+// false if not
+function connected() : bool {
+	//start or resume session
+	session_start();
+	return isset($_SESSION["admin"]);
+}
+

@@ -3,6 +3,12 @@
 
 <?php
 
+//check if admin
+//redirect to index.php if not
+if (!connected()) {
+	header('Location: index.php');
+}
+
 //we keep our pdo object
 $pdo = dbconnect();
 //and take care of our inputs
@@ -27,5 +33,3 @@ try {
 } catch (\Throwable $th) {
 		throw $th;
 }
-
-?>

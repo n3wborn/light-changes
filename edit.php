@@ -3,6 +3,12 @@
 
 <?php
 
+//check if admin
+//redirect to index.php if not
+if (!connected()) {
+	header('Location: index.php');
+}
+
 // I need to keep these vars
 $pdo = dbconnect();
 $id = htmlentities($_GET['id']);
@@ -88,5 +94,5 @@ if( count($_POST) > 0) {
 			</div>
 		</form>
 	</div>
-	<script src="scripts.js"></script>
+
 <!-- Page Structure -->

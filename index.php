@@ -3,6 +3,12 @@
 
 <?php
 
+//check if admin
+//redirect if true
+if (connected()) {
+	header('Location: dashboard.php');
+}
+
 //let's speak with database
 $pdo = dbconnect();
 
@@ -13,28 +19,33 @@ if(count($_POST) > 0) {
 	$password = htmlentities($_POST['password']);
 
 	//feed my request
-	$sql = 'SELECT users.passwd FROM users WHERE users.login = :user';
+	$sql = 'SELECT * FROM users WHERE users.login = :user';
 	//prepare my request
 	$req = $pdo->prepare($sql);
 	//and bind parameters so we take care of sqli's
 	$req->bindParam(':user', $user, PDO::PARAM_STR);
 	// exec !
 	$req->execute();
-
 	//fetch results
-	$hash = $req -> fetch();
+	$res = $req -> fetch();
 
-	//goodboy badboy challenge
-	if (!check_pwd($password, $hash["passwd"])) {
-		//if badboy
-		echo "GET OUT !";
+	// user & password ok ?
+	if ($user === $res["login"]) {
+		if (check_pwd($password, $res["passwd"])) {
+			// if ok -> start/resume session
+			if (!connected()) {
+				$_SESSION["admin"] = 1;
+				//redirect
+				header('Location: dashboard.php');
+			}
+		} else {
+			//if bad passwd
+			echo "Bad login or password";
+		}
 	} else {
-		echo "MOT DE PASSE OK";
-		//keep tracking with $_SESSION
-		//header('Location: dashboard.php');
+		echo "Bad login or password";
 	}
 }
-
 // If already connected
 //redirect to index.php
 
@@ -66,7 +77,7 @@ if(count($_POST) > 0) {
 
 		</div>
 	</main>
-	<script src="scripts.js"></script>
+
 </body>
 </html>
 <!-- Page Structure -->
