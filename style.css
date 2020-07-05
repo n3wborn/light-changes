@@ -280,7 +280,13 @@ footer p {
 
 #nav-wrapper {align-items: center;}
 
-#add-btn {width: 140%;}
+#add-btn {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+  line-height: 1rem;
+  font-style: bold;
+  width: 140%;
+}
 
 #modal {
   display: flex;
