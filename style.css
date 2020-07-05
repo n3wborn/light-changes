@@ -277,7 +277,7 @@ footer p {
   background-color: var(--c-first);
 }
 
-#form-container {
+#form-container, #login-container {
  margin-top: 5rem;
  margin-bottom: 5rem;
 }
@@ -294,7 +294,7 @@ footer p {
   width: 140%;
 }
 
-#edit-btn, #add-submit-btn {
+#edit-btn, #login-btn, #add-submit-btn {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
   line-height: 1rem;
@@ -302,7 +302,9 @@ footer p {
   background-color: var(--c-fourth);
 }
 
-#edit-btn:hover, #add-submit-btn:hover { background-color:  rgba(89, 96, 126, 0.8);}
+#edit-btn:hover, #login-btn:hover, #add-submit-btn:hover {
+  background-color:  rgba(89, 96, 126, 0.8);
+}
 
 #modal {
   display: flex;
@@ -363,4 +365,29 @@ footer p {
 
 #modal.hidden {
   display: none;
+}
+
+
+/* responsive */
+
+@media only screen and (max-width:600px){
+  /* remove Id's column */
+  thead > tr > th:first-child, tbody > tr > td:first-child  {
+    display: none;
+  }
+}
+
+
+@media only screen and (max-width:540px){
+   /* remove brand's column */
+  thead > tr > th:nth-child(6), tbody > tr > td:nth-child(6)  {
+    display: none;
+  }
+}
+
+@media only screen and (max-width:440px){
+  /* remove Power column */
+  thead > tr > th:nth-child(5), tbody > tr > td:nth-child(5)  {
+    display: none;
+  }
 }

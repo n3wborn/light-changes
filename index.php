@@ -70,7 +70,7 @@ if(count($_POST) > 0) {
 				<input type="password" name="password" class="form-input" value="" required>
 
 				<div class="container submit-container">
-					<button type="submit" class="btn btn-primary">Login</button>
+					<button id="login-btn" type="submit" class="btn btn-primary">Login</button>
 				</div>
 
 			</form>
