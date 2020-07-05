@@ -326,6 +326,11 @@ footer p {
   cursor: pointer;
 }
 
+#modal-btn-yes:hover, #modal-btn-no:hover {
+  background-color: rgba(0,0,0, 0.0);
+}
+
+
 #modal-btn-no {
   color: #fe1e72;
 }
