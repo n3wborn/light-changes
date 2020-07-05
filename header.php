@@ -13,8 +13,8 @@
 	</head>
 
 	<body>
-		<header id="header">
-			<div class="container">
+		<header id="header" class="f-center">
+			<div id="nav-wrapper" class="f-between">
 
 					<nav class="navbar">
 						<ul>
