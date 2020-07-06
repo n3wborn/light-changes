@@ -11,8 +11,6 @@ if (!connected()) {
 
 // I need to keep these vars
 $pdo = dbconnect();
-$id = htmlentities($_GET['id']);
-$ID = intval($id);
 
 //init POST vars
 $date = '';
@@ -21,8 +19,16 @@ $floor = '';
 $power = '';
 $brand = '';
 
+
+if (!isset($_GET['id'])) {
+	$id = '';
+} else {
+	$id = htmlentities($_GET['id']);
+	$ID = intval($id);
+}
+
 //if submissions
-if( count($_POST) > 0) {
+if (count($_POST) > 0) {
 	//and args is ok
 	if (
 		set_date($_POST['date']) &&
