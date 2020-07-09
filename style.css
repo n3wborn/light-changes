@@ -379,20 +379,45 @@ footer p {
 
 /* responsive */
 
+@media only screen and (max-width:1140px){
+
+  /* keep extra left/right space */
+  .table {
+    margin: 5rem;
+    width: 90%;
+  }
+}
+
+
 @media only screen and (max-width:600px){
+
   /* remove Id's column */
   thead > tr > th:first-child, tbody > tr > td:first-child  {
     display: none;
+  }
+
+  /* keep extra left/right space */
+  .table {
+  margin: 5rem;
+  width: 90%;
   }
 }
 
 
 @media only screen and (max-width:540px){
+
    /* remove brand's column */
   thead > tr > th:nth-child(6), tbody > tr > td:nth-child(6)  {
     display: none;
   }
+
+  /* add a little margin to not stick to window */
+  .table {
+    margin: 5rem;
+    width: 90%;
+  }
 }
+
 
 @media only screen and (max-width:440px){
 
@@ -417,6 +442,11 @@ footer p {
   table {
     margin-top: 1rem;
     margin-bottom: 1rem;
+  }
+
+  /* and remove margins */
+  .table {
+    width: 100%;
   }
 
   /* we need less padding */
