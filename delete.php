@@ -20,7 +20,7 @@ $id = intval($id);
 try {
 	//is $id really an int ?!
 	if (set_isint($id)){
-		//prepare ou sql request
+		//prepare request
 		$sql = 'DELETE FROM appartments WHERE ID = :id';
 		$req = $pdo->prepare($sql);
 		//avoid script k1ddi3s if possible
