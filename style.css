@@ -104,6 +104,9 @@ th {
   text-align: inherit;
 }
 
+tr:nth-child(even) {
+  background-color: rgba(125, 175, 138, 0.20);
+}
 
 td {
   color: var(--c-fifth);
@@ -392,8 +395,54 @@ footer p {
 }
 
 @media only screen and (max-width:440px){
+
+  /* more space to loose less */
+  #nav-wrapper {width: 90%;}
+
+  /* lesser space around login form */
+  #login-container {margin: 1.5rem;}
+
+  /* and inputs */
+  input, select {
+    width: 80vw;
+    margin: 1rem;
+  }
+
   /* remove Power column */
   thead > tr > th:nth-child(5), tbody > tr > td:nth-child(5)  {
     display: none;
+  }
+
+  /* lower margin top/bottom size */
+  table {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* we need less padding */
+  .table th, .table td {
+    padding: 0.75rem;
+    padding: 0.40rem;
+  }
+
+  /* more adapted modal dialog */
+  #modal_dialog {
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-width: 90%;
+    min-height: 90%;
+    padding: 1rem;
+  }
+
+  /* same for text */
+  #modal_text {
+    font-size: 1.4rem;
+    margin: 1rem
+  }
+
+  #modal-btn-yes, #modal-btn-no {
+    font-size: 1.5rem;
+    padding: 0.6rem 0.9rem;
+    margin: 1rem 2rem;
   }
 }
