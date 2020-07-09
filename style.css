@@ -145,10 +145,10 @@ footer p {
 .container {
   margin: 0;
   padding: 0;
-  font-size: 1.2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  font-size: 1.2rem;
 }
 
 .fcol {
@@ -283,7 +283,9 @@ footer p {
 }
 
 #nav-wrapper {
-  min-width: 60vw;
+  min-width: 60%;
+  align-items: center;
+  justify-content: space-between;
 }
 
 #add-btn {
@@ -304,6 +306,10 @@ footer p {
 
 #edit-btn:hover, #login-btn:hover, #add-submit-btn:hover {
   background-color:  rgba(89, 96, 126, 0.8);
+}
+
+#logout-link {
+  color: var(--c-third);
 }
 
 #modal {

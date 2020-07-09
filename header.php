@@ -1,4 +1,5 @@
 <?php error_reporting(E_ALL); ?>
+<?php require_once "functions.php"; ?>
 
 
 <!DOCTYPE html>
@@ -15,7 +16,6 @@
 	<body>
 		<header id="header" class="f-center">
 			<div id="nav-wrapper" class="f-center">
-
 					<nav class="navbar">
 						<ul>
 							<li>
@@ -23,6 +23,8 @@
 							</li>
 						</ul>
 					</nav>
-
+				<div>
+					<a  id="logout-link"  href="logout.php"><i class="fa fa-sign-out fa-2x" aria-hidden="true"></i></a>
+				</div>
 			</div>
 		</header>
