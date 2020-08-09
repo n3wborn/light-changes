@@ -1,10 +1,4 @@
 <?php
-/*
- * Connection serveur
- *$dsn = 'mysql:dbname=stephanep460_;host=localhost';
- *$user = 'stephanep460';
- *$password = 'lWKt+esA1AvVhA==';
- */
 
 $host = "4d4d71817f62";
 $db = "datas";
