@@ -64,10 +64,9 @@ if( count($_POST) > 0) {
 		<p>Fill this form to submit new values</p>
 		<!-- Main form -->
 		<form action="" method="post" class="fcol">
-			<label for="date">Date</label>
+
 			<input type="date" name="date" class="form-input" value="<?=$date ;?>" required>
 
-			<label for="location">Location</label>
 			<select id="location" class="form-input" name="location" value="<?=$location ;?>" required>
 				<option value="" selected>Choose Location</option>
 				<option value="gauche">left</option>
@@ -75,14 +74,9 @@ if( count($_POST) > 0) {
 				<option value="fond">back</option>
 			</select>
 
-			<label for="floor">Floor</label>
-			<input type="text" name="floor" class="form-input" value="<?=$floor ;?>" required>
-
-			<label for="power">Power</label>
-			<input type="text" name="power" class="form-input" value="<?=$power ;?>" required>
-
-			<label for="brand">Brand</label>
-			<input type="text" name="brand" class="form-input" value="<?=$brand ;?>" required>
+			<input type="text" placeholder="Floor" name="floor" class="form-input" value="<?=$floor ;?>" required>
+			<input type="text" placeholder="Power" name="power" class="form-input" value="<?=$power ;?>" required>
+			<input type="text" placeholder="Brand" name="brand" class="form-input" value="<?=$brand ;?>" required>
 
 			<div class="container submit-container">
 				<button id="add-submit-btn" type="submit" class="btn btn-primary">Add</button>
