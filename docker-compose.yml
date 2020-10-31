@@ -2,44 +2,44 @@ version: "3.7"
 
 services:
 
-  php-apache:
-    image: webdevops/php-apache
-    links:
-      - "mariadb"
-    ports:
-      - 8080:80
-    volumes:
-      - "./:/app:z"
-    environment:
-      - PMA_ARBITRARY=1
-      - PHP_DISPLAY_ERRORS=On
-    depends_on:
-      - mariadb
-      - phpmyadmin
-    restart: always
-
   mariadb:
     image: mariadb:10.4
+    container_name: lights-db
     ports:
       - 3306:3306
     volumes:
       - mariadb-data:/var/lib/mysql:z
     environment:
       - MYSQL_ROOT_PASSWORD=mariadb
-    restart: always
+    restart: unless-stopped
+
+  php-apache:
+    image: webdevops/php-apache
+    container_name: lights-srv
+    ports:
+      - 8080:80
+    volumes:
+      - "./:/app:z"
+    environment:
+      - PHP_DISPLAY_ERRORS=On
+    depends_on:
+      - mariadb
+    restart: unless-stopped
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
+    container_name: lights-pma
     links:
-      - mariadb
+      - mariadb:db
     ports:
       - 8081:80
     environment:
+      - PMA_HOST=mariadb
       - PMA_ARBITRARY=1
-      - MYSQL_USERNAME=root
       - MYSQL_ROOT_PASSWORD=mariadb
     depends_on:
       - mariadb
+    restart: unless-stopped
 
 volumes:
   mariadb-data:
