@@ -65,9 +65,9 @@ CREATE TABLE `users` (
 --
 -- Déchargement des données de la table `users`
 --
-
+-- admin:admin
 INSERT INTO `users` (`ID`, `login`, `passwd`) VALUES
-(1, 'admin', '$2y$10$njOT.D47/2WV1G7ua/JWpuIPVNAFIVXso4mfw7TxHGdgQVwF1JoQy');
+(1, 'admin', '$2y$10$vDGprYiXP6f.NBnp5haf.OWrgpPFNWNhSkJZHdg93si3WwTg6ZMRW');
 
 --
 -- Index pour les tables déchargées
