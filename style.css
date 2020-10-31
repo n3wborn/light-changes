@@ -237,6 +237,10 @@ footer p {
   content: "\f044";
 }
 
+.fa-sign-out:hover {
+    color: var(--c-first);
+}
+
 .form-input {
   height: 1.5em;
   padding: .5rem 1rem;
